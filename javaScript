@@ -1,0 +1,44 @@
+function doGet() {
+  return HtmlService.createHtmlOutput(`
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <title>Aplikasi Google Sheet</title>
+        <style>
+          body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 40px;
+          }
+
+          h1 {
+            color: #188038;
+          }
+
+          button {
+            background: #188038;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+          }
+
+          button:hover {
+            background: #137333;
+          }
+        </style>
+      </head>
+
+      <body>
+        <h1>🌿 Aplikasi Google Sheet</h1>
+        <p>Selamat datang di aplikasi saya.</p>
+
+        <button onclick="google.script.run.buatDataPenjualan()">
+          Buat Data Penjualan
+        </button>
+      </body>
+    </html>
+  `);
+}
