@@ -3,12 +3,23 @@ function doGet() {
     <!DOCTYPE html>
     <html>
       <head>
-        <title>Aplikasi Google Sheet</title>
+        <title>Aplikasi Penjualan</title>
+
         <style>
           body {
             font-family: Arial, sans-serif;
+            background: #f5f7f5;
             text-align: center;
+            padding: 50px;
+          }
+
+          .container {
+            background: white;
+            max-width: 600px;
+            margin: auto;
             padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
           }
 
           h1 {
@@ -19,8 +30,8 @@ function doGet() {
             background: #188038;
             color: white;
             border: none;
-            padding: 12px 25px;
-            border-radius: 6px;
+            padding: 14px 25px;
+            border-radius: 8px;
             cursor: pointer;
             font-size: 16px;
           }
@@ -28,17 +39,120 @@ function doGet() {
           button:hover {
             background: #137333;
           }
+
+          #hasil {
+            margin-top: 20px;
+            color: #188038;
+            font-weight: bold;
+          }
         </style>
       </head>
 
       <body>
-        <h1>🌿 Aplikasi Google Sheet</h1>
-        <p>Selamat datang di aplikasi saya.</p>
 
-        <button onclick="google.script.run.buatDataPenjualan()">
-          Buat Data Penjualan
-        </button>
+        <div class="container">
+
+          <h1>🌿 Aplikasi Penjualan</h1>
+
+          <p>
+            Selamat datang di aplikasi penjualan.
+          </p>
+
+          <button onclick="buatData()">
+            Buat Data Penjualan
+          </button>
+
+          <div id="hasil"></div>
+
+        </div>
+
+        <script>
+
+          function buatData() {
+
+            document.getElementById("hasil").innerHTML =
+              "⏳ Sedang membuat data...";
+
+            google.script.run
+              .withSuccessHandler(function(pesan) {
+
+                document.getElementById("hasil").innerHTML =
+                  "✅ " + pesan;
+
+              })
+              .withFailureHandler(function(error) {
+
+                document.getElementById("hasil").innerHTML =
+                  "❌ Terjadi error: " + error.message;
+
+              })
+              .buatDataPenjualan();
+
+          }
+
+        </script>
+
       </body>
     </html>
   `);
+}
+
+
+function buatDataPenjualan() {
+
+  const spreadsheet =
+    SpreadsheetApp.getActiveSpreadsheet();
+
+  const sheet =
+    spreadsheet.getActiveSheet();
+
+  // Bersihkan sheet
+  sheet.clear();
+
+  // Header
+  sheet.getRange("A1:E1").setValues([
+    [
+      "No",
+      "Produk",
+      "Jumlah",
+      "Harga Satuan",
+      "Total"
+    ]
+  ]);
+
+  // Data contoh
+  const data = [
+    [1, "Laptop", 3, 8000000],
+    [2, "Mouse", 10, 150000],
+    [3, "Keyboard", 5, 350000],
+    [4, "Monitor", 2, 2000000],
+    [5, "Printer", 1, 1500000]
+  ];
+
+  sheet.getRange("A2:D6").setValues(data);
+
+  // Rumus total
+  sheet.getRange("E2").setFormula("=C2*D2");
+
+  sheet.getRange("E2:E6").fillDown();
+
+  // Total keseluruhan
+  sheet.getRange("D8").setValue("TOTAL PENJUALAN");
+
+  sheet.getRange("E8")
+    .setFormula("=SUM(E2:E6)");
+
+  // Format header
+  sheet.getRange("A1:E1")
+    .setFontWeight("bold")
+    .setBackground("#d9ead3");
+
+  // Format Rupiah
+  sheet.getRange("D2:E8")
+    .setNumberFormat('"Rp" #,##0');
+
+  // Sesuaikan lebar kolom
+  sheet.autoResizeColumns(1, 5);
+
+  return "Data penjualan berhasil dibuat!";
 }
