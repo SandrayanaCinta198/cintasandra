@@ -115,6 +115,83 @@
       <div class="footer">
         © 2026 Aplikasi Penjualan
       </div>
+      <div class="contact-form">
+
+  <h2>Kirim Pesan</h2>
+
+  <form id="formPesan">
+
+    <label>Nama</label>
+    <input
+      type="text"
+      id="nama"
+      placeholder="Masukkan nama Anda"
+      required
+    >
+
+    <label>Email</label>
+    <input
+      type="email"
+      id="email"
+      placeholder="Masukkan email Anda"
+      required
+    >
+
+    <label>Pesan</label>
+    <textarea
+      id="pesan"
+      placeholder="Tulis pesan Anda..."
+      rows="6"
+      required
+    ></textarea>
+
+    <button type="submit">
+      Kirim Pesan
+    </button>
+
+  </form>
+
+  <p id="status"></p>
+
+</div>
+
+
+<script>
+
+document.getElementById("formPesan").addEventListener("submit", function(e) {
+
+  e.preventDefault();
+
+  const nama = document.getElementById("nama").value;
+  const email = document.getElementById("email").value;
+  const pesan = document.getElementById("pesan").value;
+
+  const status = document.getElementById("status");
+
+  status.innerHTML = "Mengirim pesan...";
+
+  google.script.run
+
+    .withSuccessHandler(function(response) {
+
+      status.innerHTML = response;
+
+      document.getElementById("formPesan").reset();
+
+    })
+
+    .withFailureHandler(function(error) {
+
+      status.innerHTML =
+        "Pesan gagal dikirim: " + error.message;
+
+    })
+
+    .kirimPesan(nama, email, pesan);
+
+});
+
+</script>
 
     </div>
 
