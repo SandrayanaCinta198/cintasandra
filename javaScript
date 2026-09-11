@@ -3,13 +3,13 @@ function doGet() {
     <!DOCTYPE html>
     <html>
       <head>
-        <title>Aplikasi Penjualan</title>
+        <title>Kontak</title>
 
         <style>
           body {
             font-family: Arial, sans-serif;
             background: #f5f7f5;
-            text-align: center;
+            margin: 0;
             padding: 50px;
           }
 
@@ -23,27 +23,55 @@ function doGet() {
           }
 
           h1 {
+            text-align: center;
+            color: #188038;
+            margin-bottom: 10px;
+          }
+
+          .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+          }
+
+          .contact-box {
+            background: #f1f8f3;
+            padding: 18px;
+            margin-bottom: 15px;
+            border-radius: 10px;
+          }
+
+          .contact-box h3 {
+            margin: 0 0 8px 0;
             color: #188038;
           }
 
-          button {
+          .contact-box p {
+            margin: 0;
+            color: #333;
+          }
+
+          .whatsapp {
+            display: block;
+            text-align: center;
             background: #188038;
             color: white;
-            border: none;
-            padding: 14px 25px;
+            text-decoration: none;
+            padding: 14px;
             border-radius: 8px;
-            cursor: pointer;
+            margin-top: 25px;
             font-size: 16px;
           }
 
-          button:hover {
+          .whatsapp:hover {
             background: #137333;
           }
 
-          #hasil {
-            margin-top: 20px;
-            color: #188038;
-            font-weight: bold;
+          .footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #888;
+            font-size: 13px;
           }
         </style>
       </head>
@@ -52,107 +80,46 @@ function doGet() {
 
         <div class="container">
 
-          <h1>🌿 Aplikasi Penjualan</h1>
+          <h1>📞 Kontak Kami</h1>
 
-          <p>
-            Selamat datang di aplikasi penjualan.
+          <p class="subtitle">
+            Silakan hubungi kami melalui informasi berikut.
           </p>
 
-          <button onclick="buatData()">
-            Buat Data Penjualan
-          </button>
+          <div class="contact-box">
+            <h3>👤 Nama</h3>
+            <p>Cinta Sandrayana</p>
+          </div>
 
-          <div id="hasil"></div>
+          <div class="contact-box">
+            <h3>📱 Nomor Telepon</h3>
+            <p>0822-5683-1797</p>
+          </div>
+
+          <div class="contact-box">
+            <h3>📧 Email</h3>
+            <p>sandrayanacinta@gmail.com</p>
+          </div>
+
+          <div class="contact-box">
+            <h3>📍 Alamat</h3>
+            <p>Serunai, Kalimantan Barat</p>
+          </div>
+
+          <a
+            class="whatsapp"
+            href="https://wa.me/6282256831797"
+            target="_blank">
+            💬 Hubungi via WhatsApp
+          </a>
+
+          <div class="footer">
+            © 2026 Aplikasi Penjualan
+          </div>
 
         </div>
-
-        <script>
-
-          function buatData() {
-
-            document.getElementById("hasil").innerHTML =
-              "⏳ Sedang membuat data...";
-
-            google.script.run
-              .withSuccessHandler(function(pesan) {
-
-                document.getElementById("hasil").innerHTML =
-                  "✅ " + pesan;
-
-              })
-              .withFailureHandler(function(error) {
-
-                document.getElementById("hasil").innerHTML =
-                  "❌ Terjadi error: " + error.message;
-
-              })
-              .buatDataPenjualan();
-
-          }
-
-        </script>
 
       </body>
     </html>
   `);
-}
-
-
-function buatDataPenjualan() {
-
-  const spreadsheet =
-    SpreadsheetApp.getActiveSpreadsheet();
-
-  const sheet =
-    spreadsheet.getActiveSheet();
-
-  // Bersihkan sheet
-  sheet.clear();
-
-  // Header
-  sheet.getRange("A1:E1").setValues([
-    [
-      "No",
-      "Produk",
-      "Jumlah",
-      "Harga Satuan",
-      "Total"
-    ]
-  ]);
-
-  // Data contoh
-  const data = [
-    [1, "Laptop", 3, 8000000],
-    [2, "Mouse", 10, 150000],
-    [3, "Keyboard", 5, 350000],
-    [4, "Monitor", 2, 2000000],
-    [5, "Printer", 1, 1500000]
-  ];
-
-  sheet.getRange("A2:D6").setValues(data);
-
-  // Rumus total
-  sheet.getRange("E2").setFormula("=C2*D2");
-
-  sheet.getRange("E2:E6").fillDown();
-
-  // Total keseluruhan
-  sheet.getRange("D8").setValue("TOTAL PENJUALAN");
-
-  sheet.getRange("E8")
-    .setFormula("=SUM(E2:E6)");
-
-  // Format header
-  sheet.getRange("A1:E1")
-    .setFontWeight("bold")
-    .setBackground("#d9ead3");
-
-  // Format Rupiah
-  sheet.getRange("D2:E8")
-    .setNumberFormat('"Rp" #,##0');
-
-  // Sesuaikan lebar kolom
-  sheet.autoResizeColumns(1, 5);
-
-  return "Data penjualan berhasil dibuat!";
 }
