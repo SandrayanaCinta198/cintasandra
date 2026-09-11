@@ -1,199 +1,348 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <base target="_top">
+<head>
+  <base target="_top">
 
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        background: #f5f7f5;
-        margin: 0;
-        padding: 50px;
-      }
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f7f5;
+      margin: 0;
+      padding: 50px;
+    }
 
-      .container {
-        background: white;
-        max-width: 600px;
-        margin: auto;
-        padding: 40px;
-        border-radius: 15px;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-      }
+    .container {
+      background: white;
+      max-width: 600px;
+      margin: auto;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
 
-      h1 {
-        text-align: center;
-        color: #188038;
-        margin-bottom: 10px;
-      }
+    h1 {
+      text-align: center;
+      color: #188038;
+      margin-bottom: 10px;
+    }
 
-      .subtitle {
-        text-align: center;
-        color: #666;
-        margin-bottom: 30px;
-      }
+    .subtitle {
+      text-align: center;
+      color: #666;
+      margin-bottom: 30px;
+    }
 
-      .contact-box {
-        background: #f1f8f3;
-        padding: 18px;
-        margin-bottom: 15px;
-        border-radius: 10px;
-      }
+    .contact-box {
+      background: #f1f8f3;
+      padding: 18px;
+      margin-bottom: 15px;
+      border-radius: 10px;
+    }
 
-      .contact-box h3 {
-        margin: 0 0 8px 0;
-        color: #188038;
-      }
+    .contact-box h3 {
+      margin: 0 0 8px 0;
+      color: #188038;
+    }
 
-      .contact-box p {
-        margin: 0;
-        color: #333;
-      }
+    .contact-box p {
+      margin: 0;
+      color: #333;
+    }
 
-      .whatsapp {
-        display: block;
-        text-align: center;
-        background: #188038;
-        color: white;
-        text-decoration: none;
-        padding: 14px;
-        border-radius: 8px;
-        margin-top: 25px;
-        font-size: 16px;
-      }
+    .whatsapp {
+      display: block;
+      text-align: center;
+      background: #188038;
+      color: white;
+      text-decoration: none;
+      padding: 14px;
+      border-radius: 8px;
+      margin-top: 25px;
+      font-size: 16px;
+    }
 
-      .whatsapp:hover {
-        background: #137333;
-      }
+    .whatsapp:hover {
+      background: #137333;
+    }
 
-      .footer {
-        text-align: center;
-        margin-top: 30px;
-        color: #888;
-        font-size: 13px;
-      }
-    </style>
+    /* FORM PESAN */
+    .contact-form {
+      margin-top: 35px;
+      padding-top: 30px;
+      border-top: 2px solid #eee;
+    }
 
-  </head>
+    .contact-form h2 {
+      text-align: center;
+      color: #188038;
+      margin-bottom: 25px;
+    }
 
-  <body>
+    .contact-form label {
+      display: block;
+      margin-top: 15px;
+      margin-bottom: 7px;
+      font-weight: bold;
+      color: #333;
+    }
 
-    <div class="container">
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 15px;
+      font-family: Arial, sans-serif;
+    }
 
-      <h1>📞 Kontak Kami</h1>
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      outline: none;
+      border-color: #188038;
+    }
 
-      <p class="subtitle">
-        Silakan hubungi kami melalui informasi berikut.
-      </p>
+    .contact-form textarea {
+      resize: vertical;
+    }
 
-      <div class="contact-box">
-        <h3>👤 Nama</h3>
-        <p>Cinta Sandrayana</p>
-      </div>
+    .contact-form button {
+      width: 100%;
+      margin-top: 20px;
+      padding: 14px;
+      border: none;
+      border-radius: 8px;
+      background: #188038;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
 
-      <div class="contact-box">
-        <h3>📱 Nomor Telepon</h3>
-        <p>0822-5683-1797</p>
-      </div>
+    .contact-form button:hover {
+      background: #137333;
+    }
 
-      <div class="contact-box">
-        <h3>📧 Email</h3>
-        <p>sandrayanacinta198@gmail.com</p>
-      </div>
+    .contact-form button:disabled {
+      background: #999;
+      cursor: not-allowed;
+    }
 
-      <div class="contact-box">
-        <h3>📍 Alamat</h3>
-        <p>Serunai, Kalimantan Barat</p>
-      </div>
+    #status {
+      text-align: center;
+      margin-top: 15px;
+      font-weight: bold;
+    }
 
-      <a
-        class="whatsapp"
-        href="https://wa.me/6282256831797"
-        target="_blank">
-        💬 Hubungi via WhatsApp
-      </a>
+    .footer {
+      text-align: center;
+      margin-top: 30px;
+      color: #888;
+      font-size: 13px;
+    }
+  </style>
 
-      <div class="footer">
-        © 2026 Aplikasi Penjualan
-      </div>
-      <div class="contact-form">
+</head>
 
-  <h2>Kirim Pesan</h2>
+<body>
 
-  <form id="formPesan">
+  <div class="container">
 
-    <label>Nama</label>
-    <input
-      type="text"
-      id="nama"
-      placeholder="Masukkan nama Anda"
-      required
-    >
+    <h1>📞 Kontak Kami</h1>
 
-    <label>Email</label>
-    <input
-      type="email"
-      id="email"
-      placeholder="Masukkan email Anda"
-      required
-    >
+    <p class="subtitle">
+      Silakan hubungi kami melalui informasi berikut.
+    </p>
 
-    <label>Pesan</label>
-    <textarea
-      id="pesan"
-      placeholder="Tulis pesan Anda..."
-      rows="6"
-      required
-    ></textarea>
+    <!-- INFORMASI KONTAK -->
 
-    <button type="submit">
-      Kirim Pesan
-    </button>
+    <div class="contact-box">
+      <h3>👤 Nama</h3>
+      <p>Cinta Sandrayana</p>
+    </div>
 
-  </form>
+    <div class="contact-box">
+      <h3>📱 Nomor Telepon</h3>
+      <p>0822-5683-1797</p>
+    </div>
 
-  <p id="status"></p>
+    <div class="contact-box">
+      <h3>📧 Email</h3>
+      <p>sandrayanacinta198@gmail.com</p>
+    </div>
 
-</div>
+    <div class="contact-box">
+      <h3>📍 Alamat</h3>
+      <p>Serunai, Kalimantan Barat</p>
+    </div>
+
+    <!-- WHATSAPP -->
+
+    <a
+      class="whatsapp"
+      href="https://wa.me/6282256831797"
+      target="_blank">
+      💬 Hubungi via WhatsApp
+    </a>
 
 
-<script>
+    <!-- FORM KIRIM PESAN -->
 
-document.getElementById("formPesan").addEventListener("submit", function(e) {
+    <div class="contact-form">
 
-  e.preventDefault();
+      <h2>💬 Kirim Pesan</h2>
 
-  const nama = document.getElementById("nama").value;
-  const email = document.getElementById("email").value;
-  const pesan = document.getElementById("pesan").value;
+      <form id="formPesan">
 
-  const status = document.getElementById("status");
+        <label for="nama">Nama</label>
 
-  status.innerHTML = "Mengirim pesan...";
+        <input
+          type="text"
+          id="nama"
+          placeholder="Masukkan nama Anda"
+          required
+        >
 
-  google.script.run
 
-    .withSuccessHandler(function(response) {
+        <label for="email">Email</label>
 
-      status.innerHTML = response;
+        <input
+          type="email"
+          id="email"
+          placeholder="Masukkan email Anda"
+          required
+        >
 
-      document.getElementById("formPesan").reset();
 
-    })
+        <label for="pesan">Pesan</label>
 
-    .withFailureHandler(function(error) {
+        <textarea
+          id="pesan"
+          placeholder="Tulis pesan Anda..."
+          rows="6"
+          required
+        ></textarea>
 
-      status.innerHTML =
-        "Pesan gagal dikirim: " + error.message;
 
-    })
+        <button type="submit" id="btnKirim">
+          📤 Kirim Pesan
+        </button>
 
-    .kirimPesan(nama, email, pesan);
+      </form>
 
-});
-
-</script>
+      <p id="status"></p>
 
     </div>
 
-  </body>
+
+    <div class="footer">
+      © 2026 Aplikasi Penjualan
+    </div>
+
+  </div>
+
+
+  <!-- JAVASCRIPT -->
+
+  <script>
+
+    document
+      .getElementById("formPesan")
+      .addEventListener("submit", function(e) {
+
+        e.preventDefault();
+
+        const nama =
+          document.getElementById("nama").value.trim();
+
+        const email =
+          document.getElementById("email").value.trim();
+
+        const pesan =
+          document.getElementById("pesan").value.trim();
+
+        const status =
+          document.getElementById("status");
+
+        const tombol =
+          document.getElementById("btnKirim");
+
+
+        // Cek data
+
+        if (!nama || !email || !pesan) {
+
+          status.innerHTML =
+            "⚠️ Semua kolom wajib diisi.";
+
+          status.style.color = "red";
+
+          return;
+        }
+
+
+        // Ubah status
+
+        status.innerHTML =
+          "⏳ Mengirim pesan...";
+
+        status.style.color = "#188038";
+
+        tombol.disabled = true;
+
+        tombol.innerHTML =
+          "⏳ Mengirim...";
+
+
+        // Kirim ke Google Apps Script
+
+        google.script.run
+
+          .withSuccessHandler(function(response) {
+
+            status.innerHTML =
+              "✅ " + response;
+
+            status.style.color = "#188038";
+
+            document
+              .getElementById("formPesan")
+              .reset();
+
+            tombol.disabled = false;
+
+            tombol.innerHTML =
+              "📤 Kirim Pesan";
+
+          })
+
+          .withFailureHandler(function(error) {
+
+            status.innerHTML =
+              "❌ Pesan gagal dikirim: " +
+              error.message;
+
+            status.style.color = "red";
+
+            tombol.disabled = false;
+
+            tombol.innerHTML =
+              "📤 Kirim Pesan";
+
+            console.error(error);
+
+          })
+
+          .kirimPesan(
+            nama,
+            email,
+            pesan
+          );
+
+      });
+
+  </script>
+
+</body>
 </html>
