@@ -1,144 +1,578 @@
-<script>
+<!DOCTYPE html>
+<html lang="id">
 
-const WEB_APP_URL =
-"https://script.google.com/macros/s/AKfycbwub531VZJwqkCha1XFOqyajj28OOAbCJ45i0YZU4cBtBE8i2wdGrUFy8UuWN1yMLgB/exec";
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Kontak Kami</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 40px 20px;
+      font-family: Arial, sans-serif;
+      background: #f5f7f5;
+      color: #333;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 650px;
+      margin: auto;
+      background: white;
+      padding: 35px;
+      border-radius: 15px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.10);
+    }
+
+    h1 {
+      text-align: center;
+      color: #188038;
+      margin-top: 0;
+      margin-bottom: 10px;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: #666;
+      margin-bottom: 30px;
+    }
+
+    .contact-box {
+      background: #f1f8f3;
+      padding: 18px;
+      margin-bottom: 15px;
+      border-radius: 10px;
+    }
+
+    .contact-box h3 {
+      margin: 0 0 8px;
+      color: #188038;
+      font-size: 17px;
+    }
+
+    .contact-box p {
+      margin: 0;
+      font-size: 15px;
+      word-break: break-word;
+    }
+
+    .whatsapp {
+      display: block;
+      width: 100%;
+      padding: 14px;
+      margin-top: 25px;
+      text-align: center;
+      text-decoration: none;
+      color: white;
+      background: #188038;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: 0.2s;
+    }
+
+    .whatsapp:hover {
+      background: #137333;
+    }
+
+    .form-container {
+      margin-top: 35px;
+      padding-top: 30px;
+      border-top: 2px solid #eeeeee;
+    }
+
+    .form-container h2 {
+      text-align: center;
+      color: #188038;
+      margin-top: 0;
+      margin-bottom: 25px;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 7px;
+      font-weight: bold;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 13px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 15px;
+      font-family: Arial, sans-serif;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: #188038;
+    }
+
+    .form-group textarea {
+      min-height: 140px;
+      resize: vertical;
+    }
+
+    #btnKirim {
+      width: 100%;
+      padding: 14px;
+      border: none;
+      border-radius: 8px;
+      background: #188038;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    #btnKirim:hover {
+      background: #137333;
+    }
+
+    #btnKirim:disabled {
+      background: #999;
+      cursor: not-allowed;
+    }
+
+    #status {
+      min-height: 25px;
+      margin-top: 15px;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .footer {
+      margin-top: 30px;
+      text-align: center;
+      color: #888;
+      font-size: 13px;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 20px 10px;
+      }
+
+      .container {
+        padding: 25px 20px;
+      }
+    }
+  </style>
+</head>
 
 
-function kirimPesan() {
+<body>
 
-  const nama =
-    document.getElementById("nama").value.trim();
+  <div class="container">
 
-  const email =
-    document.getElementById("email").value.trim();
+    <!-- JUDUL -->
+    <h1>📞 Kontak Kami</h1>
 
-  const pesan =
-    document.getElementById("pesan").value.trim();
-
-  const status =
-    document.getElementById("status");
-
-  const tombol =
-    document.getElementById("btnKirim");
+    <p class="subtitle">
+      Silakan hubungi kami melalui informasi berikut.
+    </p>
 
 
-  // VALIDASI
+    <!-- INFORMASI KONTAK -->
 
-  if (nama === "") {
-    status.innerHTML = "⚠️ Nama wajib diisi.";
-    status.style.color = "red";
-    return;
-  }
-
-  if (email === "") {
-    status.innerHTML = "⚠️ Email wajib diisi.";
-    status.style.color = "red";
-    return;
-  }
-
-  if (pesan === "") {
-    status.innerHTML = "⚠️ Pesan wajib diisi.";
-    status.style.color = "red";
-    return;
-  }
+    <div class="contact-box">
+      <h3>👤 Nama</h3>
+      <p>Cinta Sandrayana</p>
+    </div>
 
 
-  // TAMPILKAN LOADING
-
-  status.innerHTML = "⏳ Mengirim pesan...";
-  status.style.color = "#188038";
-
-  tombol.disabled = true;
-  tombol.innerHTML = "⏳ Mengirim...";
+    <div class="contact-box">
+      <h3>📱 Nomor Telepon</h3>
+      <p>0822-5683-1797</p>
+    </div>
 
 
-  // REQUEST
-
-  const url =
-    WEB_APP_URL +
-    "?action=kirimPesan" +
-    "&nama=" + encodeURIComponent(nama) +
-    "&email=" + encodeURIComponent(email) +
-    "&pesan=" + encodeURIComponent(pesan);
+    <div class="contact-box">
+      <h3>📧 Email</h3>
+      <p>sandrayanacinta198@gmail.com</p>
+    </div>
 
 
-  fetch(url)
-    .then(function(response) {
-
-      return response.text();
-
-    })
-
-    .then(function(data) {
-
-      console.log("RESPON APPS SCRIPT:", data);
+    <div class="contact-box">
+      <h3>📍 Alamat</h3>
+      <p>Serunai, Kalimantan Barat</p>
+    </div>
 
 
-      let hasil;
+    <!-- WHATSAPP -->
 
-      try {
+    <a
+      class="whatsapp"
+      href="https://wa.me/6282256831797"
+      target="_blank"
+      rel="noopener noreferrer">
 
-        hasil = JSON.parse(data);
+      💬 Hubungi via WhatsApp
 
-      } catch (error) {
+    </a>
 
-        throw new Error(
-          "Server memberikan respon yang tidak valid."
-        );
 
+    <!-- FORM PESAN -->
+
+    <div class="form-container">
+
+      <h2>💬 Kirim Pesan</h2>
+
+
+      <div class="form-group">
+
+        <label for="nama">
+          Nama
+        </label>
+
+        <input
+          type="text"
+          id="nama"
+          placeholder="Masukkan nama Anda"
+        >
+
+      </div>
+
+
+      <div class="form-group">
+
+        <label for="email">
+          Email
+        </label>
+
+        <input
+          type="email"
+          id="email"
+          placeholder="Masukkan email Anda"
+        >
+
+      </div>
+
+
+      <div class="form-group">
+
+        <label for="pesan">
+          Pesan
+        </label>
+
+        <textarea
+          id="pesan"
+          placeholder="Tulis pesan Anda..."
+        ></textarea>
+
+      </div>
+
+
+      <!-- TOMBOL KIRIM -->
+
+      <button
+        type="button"
+        id="btnKirim"
+        onclick="kirimPesan()">
+
+        📤 Kirim Pesan
+
+      </button>
+
+
+      <!-- STATUS -->
+
+      <div id="status"></div>
+
+    </div>
+
+
+    <!-- FOOTER -->
+
+    <div class="footer">
+      © 2026 Aplikasi Penjualan
+    </div>
+
+  </div>
+
+
+  <!-- =====================================================
+       JAVASCRIPT
+       ===================================================== -->
+
+  <script>
+
+    // =====================================================
+    // URL GOOGLE APPS SCRIPT
+    // =====================================================
+
+    const WEB_APP_URL =
+      "https://script.google.com/macros/s/AKfycbwub531VZJwqkCha1XFOqyajj28OOAbCJ45i0YZU4cBtBE8i2wdGrUFy8UuWN1yMLgB/exec";
+
+
+    // =====================================================
+    // FUNGSI KIRIM PESAN
+    // =====================================================
+
+    function kirimPesan() {
+
+      // Ambil data dari input
+
+      const nama =
+        document.getElementById("nama").value.trim();
+
+      const email =
+        document.getElementById("email").value.trim();
+
+      const pesan =
+        document.getElementById("pesan").value.trim();
+
+      const tombol =
+        document.getElementById("btnKirim");
+
+      const status =
+        document.getElementById("status");
+
+
+      // =====================================================
+      // VALIDASI NAMA
+      // =====================================================
+
+      if (nama === "") {
+
+        status.innerHTML =
+          "⚠️ Nama wajib diisi.";
+
+        status.style.color = "red";
+
+        document.getElementById("nama").focus();
+
+        return;
       }
 
 
-      if (hasil.success) {
+      // =====================================================
+      // VALIDASI EMAIL
+      // =====================================================
+
+      if (email === "") {
 
         status.innerHTML =
-          "✅ " + hasil.message;
+          "⚠️ Email wajib diisi.";
 
-        status.style.color =
-          "#188038";
+        status.style.color = "red";
+
+        document.getElementById("email").focus();
+
+        return;
+      }
 
 
-        // Kosongkan form
+      // =====================================================
+      // VALIDASI FORMAT EMAIL
+      // =====================================================
 
-        document.getElementById("nama").value = "";
+      const polaEmail =
+        /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-        document.getElementById("email").value = "";
-
-        document.getElementById("pesan").value = "";
-
-      } else {
+      if (!polaEmail.test(email)) {
 
         status.innerHTML =
-          "❌ " + hasil.message;
+          "⚠️ Format email tidak valid.";
+
+        status.style.color = "red";
+
+        document.getElementById("email").focus();
+
+        return;
+      }
+
+
+      // =====================================================
+      // VALIDASI PESAN
+      // =====================================================
+
+      if (pesan === "") {
+
+        status.innerHTML =
+          "⚠️ Pesan wajib diisi.";
+
+        status.style.color = "red";
+
+        document.getElementById("pesan").focus();
+
+        return;
+      }
+
+
+      // =====================================================
+      // TAMPILKAN PROSES
+      // =====================================================
+
+      status.innerHTML =
+        "⏳ Sedang mengirim pesan...";
+
+      status.style.color =
+        "#188038";
+
+      tombol.disabled = true;
+
+      tombol.innerHTML =
+        "⏳ Mengirim...";
+
+
+      // =====================================================
+      // BUAT URL REQUEST
+      // =====================================================
+
+      const url =
+        WEB_APP_URL +
+        "?action=kirimPesan" +
+        "&nama=" +
+        encodeURIComponent(nama) +
+        "&email=" +
+        encodeURIComponent(email) +
+        "&pesan=" +
+        encodeURIComponent(pesan);
+
+
+      // =====================================================
+      // KIRIM DATA
+      // =====================================================
+
+      fetch(url, {
+        method: "GET"
+      })
+
+      .then(function(response) {
+
+        if (!response.ok) {
+
+          throw new Error(
+            "Server tidak merespons dengan benar."
+          );
+
+        }
+
+        return response.text();
+
+      })
+
+      .then(function(data) {
+
+        console.log(
+          "Respon Apps Script:",
+          data
+        );
+
+
+        // =================================================
+        // UBAH RESPON MENJADI JSON
+        // =================================================
+
+        let hasil;
+
+        try {
+
+          hasil =
+            JSON.parse(data);
+
+        } catch (error) {
+
+          throw new Error(
+            "Respon dari Apps Script tidak valid."
+          );
+
+        }
+
+
+        // =================================================
+        // JIKA BERHASIL
+        // =================================================
+
+        if (hasil.success === true) {
+
+          status.innerHTML =
+            "✅ " + hasil.message;
+
+          status.style.color =
+            "#188038";
+
+
+          // Kosongkan form
+
+          document.getElementById("nama").value = "";
+
+          document.getElementById("email").value = "";
+
+          document.getElementById("pesan").value = "";
+
+        }
+
+
+        // =================================================
+        // JIKA GAGAL
+        // =================================================
+
+        else {
+
+          status.innerHTML =
+            "❌ " +
+            (hasil.message ||
+             "Pesan gagal dikirim.");
+
+          status.style.color =
+            "red";
+
+        }
+
+      })
+
+
+      // =====================================================
+      // JIKA TERJADI ERROR
+      // =====================================================
+
+      .catch(function(error) {
+
+        console.error(
+          "ERROR:",
+          error
+        );
+
+        status.innerHTML =
+          "❌ Gagal mengirim pesan.<br>" +
+          "Silakan coba lagi.";
 
         status.style.color =
           "red";
-      }
 
-    })
+      })
 
-    .catch(function(error) {
 
-      console.error(error);
+      // =====================================================
+      // AKTIFKAN TOMBOL KEMBALI
+      // =====================================================
 
-      status.innerHTML =
-        "❌ Gagal mengirim pesan: " +
-        error.message;
+      .finally(function() {
 
-      status.style.color =
-        "red";
+        tombol.disabled = false;
 
-    })
+        tombol.innerHTML =
+          "📤 Kirim Pesan";
 
-    .finally(function() {
+      });
 
-      tombol.disabled = false;
+    }
 
-      tombol.innerHTML =
-        "📤 Kirim Pesan";
+  </script>
 
-    });
+</body>
 
-}
-
-</script>
+</html>
