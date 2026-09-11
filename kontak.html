@@ -1,78 +1,122 @@
 <!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kontak Desa Serunai</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+<html>
+  <head>
+    <base target="_top">
 
-<header>
-    <div class="logo">
-        <h2>DESA SERUNAI</h2>
-        <p>Kabupaten Sambas</p>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: #f5f7f5;
+        margin: 0;
+        padding: 50px;
+      }
+
+      .container {
+        background: white;
+        max-width: 600px;
+        margin: auto;
+        padding: 40px;
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      }
+
+      h1 {
+        text-align: center;
+        color: #188038;
+        margin-bottom: 10px;
+      }
+
+      .subtitle {
+        text-align: center;
+        color: #666;
+        margin-bottom: 30px;
+      }
+
+      .contact-box {
+        background: #f1f8f3;
+        padding: 18px;
+        margin-bottom: 15px;
+        border-radius: 10px;
+      }
+
+      .contact-box h3 {
+        margin: 0 0 8px 0;
+        color: #188038;
+      }
+
+      .contact-box p {
+        margin: 0;
+        color: #333;
+      }
+
+      .whatsapp {
+        display: block;
+        text-align: center;
+        background: #188038;
+        color: white;
+        text-decoration: none;
+        padding: 14px;
+        border-radius: 8px;
+        margin-top: 25px;
+        font-size: 16px;
+      }
+
+      .whatsapp:hover {
+        background: #137333;
+      }
+
+      .footer {
+        text-align: center;
+        margin-top: 30px;
+        color: #888;
+        font-size: 13px;
+      }
+    </style>
+
+  </head>
+
+  <body>
+
+    <div class="container">
+
+      <h1>📞 Kontak Kami</h1>
+
+      <p class="subtitle">
+        Silakan hubungi kami melalui informasi berikut.
+      </p>
+
+      <div class="contact-box">
+        <h3>👤 Nama</h3>
+        <p>Cinta Sandrayana</p>
+      </div>
+
+      <div class="contact-box">
+        <h3>📱 Nomor Telepon</h3>
+        <p>0822-5683-1797</p>
+      </div>
+
+      <div class="contact-box">
+        <h3>📧 Email</h3>
+        <p>sandrayanacinta198@gmail.com</p>
+      </div>
+
+      <div class="contact-box">
+        <h3>📍 Alamat</h3>
+        <p>Serunai, Kalimantan Barat</p>
+      </div>
+
+      <a
+        class="whatsapp"
+        href="https://wa.me/6282256831797"
+        target="_blank">
+        💬 Hubungi via WhatsApp
+      </a>
+
+      <div class="footer">
+        © 2026 Aplikasi Penjualan
+      </div>
+
     </div>
 
-    <nav>
-        <a href="index.html">Beranda</a>
-        <a href="tentang.html">Tentang Desa</a>
-        <a href="wisata.html">Wisata</a>
-        <a href="galeri.html">Galeri</a>
-        <a href="kontak.html" class="active">Kontak</a>
-    </nav>
-</header>
-
-<section class="page-header">
-    <h1>Kontak Desa</h1>
-    <p>Hubungi Pemerintah Desa Serunai</p>
-</section>
-
-<section class="contact">
-
-    <div class="contact-info">
-        <h2>Informasi Kontak</h2>
-
-        <p>
-            <strong>📍 Alamat</strong><br>
-            Desa Serunai, Kabupaten Sambas,
-            Kalimantan Barat, Indonesia
-        </p>
-
-        <p>
-            <strong>📞 Telepon</strong><br>
-            +6282256831797
-        </p>
-
-        <p>
-            <strong>✉️ Email</strong><br>
-            desaserunai@email.com
-        </p>
-    </div>
-
-    <div class="contact-form">
-        <h2>Kirim Pesan</h2>
-
-        <form>
-            <input type="text" placeholder="Nama Lengkap" required>
-
-            <input type="email" placeholder="Email" required>
-
-            <input type="text" placeholder="Subjek" required>
-
-            <textarea placeholder="Tulis pesan Anda..." rows="6"
-                      required></textarea>
-
-            <button type="submit">Kirim Pesan</button>
-        </form>
-    </div>
-
-</section>
-
-<footer>
-    <p>&copy; 2026 Desa Serunai. Semua Hak Dilindungi.</p>
-</footer>
-
-<script src="script.js"></script>
-</body>
+  </body>
 </html>
