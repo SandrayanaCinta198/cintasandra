@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Desa Serunai Tumpak</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0066cc, #00aaff);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .login-box {
+            background: white;
+            width: 100%;
+            max-width: 400px;
+            padding: 35px;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0,0,0,.2);
+            text-align: center;
+        }
+
+        .login-box h1 {
+            color: #0066cc;
+            margin-bottom: 10px;
+        }
+
+        .login-box p {
+            color: #666;
+            margin-bottom: 25px;
+        }
+
+        input {
+            width: 100%;
+            padding: 14px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            outline: none;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 10px;
+            background: #0066cc;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #004c99;
+        }
+
+        #adminPanel {
+            display: none;
+        }
+
+        .data-box {
+            margin-top: 20px;
+            padding: 20px;
+            background: #f5f9ff;
+            border-radius: 12px;
+            text-align: left;
+        }
+
+        .logout {
+            margin-top: 15px;
+            background: #e53935;
+        }
+
+        #error {
+            color: red;
+            margin-top: 12px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="login-box" id="loginBox">
+
+    <h1>🔐 Admin Panel</h1>
+    <p>Desa Serunai Tumpak</p>
+
+    <input
+        type="password"
+        id="password"
+        placeholder="Masukkan password admin"
+    >
+
+    <button onclick="login()">Masuk</button>
+
+    <p id="error"></p>
+
+</div>
+
+
+<div class="login-box" id="adminPanel">
+
+    <h1>Dashboard Admin</h1>
+
+    <p>
+        Selamat datang di Panel Admin
+        Desa Serunai Tumpak.
+    </p>
+
+    <div class="data-box">
+        <h3>📩 Data Pengaduan</h3>
+        <p>
+            Data pengaduan masyarakat akan
+            ditampilkan di halaman ini.
+        </p>
+    </div>
+
+    <div class="data-box">
+        <h3>📊 Data Website</h3>
+        <p>
+            Kelola informasi dan data desa
+            melalui panel admin.
+        </p>
+    </div>
+
+    <button class="logout" onclick="logout()">
+        Keluar
+    </button>
+
+</div>
+
+
+<script>
+
+function login() {
+
+    const password =
+        document.getElementById("password").value;
+
+    // GANTI PASSWORD DI SINI
+    const passwordAdmin = "admin123";
+
+    if (password === passwordAdmin) {
+
+        document.getElementById("loginBox").style.display = "none";
+
+        document.getElementById("adminPanel").style.display = "block";
+
+    } else {
+
+        document.getElementById("error").textContent =
+            "Password salah!";
+
+    }
+}
+
+
+function logout() {
+
+    document.getElementById("adminPanel").style.display = "none";
+
+    document.getElementById("loginBox").style.display = "block";
+
+    document.getElementById("password").value = "";
+
+}
+
+</script>
+
+</body>
+</html>
