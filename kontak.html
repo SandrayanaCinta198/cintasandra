@@ -1,354 +1,10 @@
-<!DOCTYPE html>
-<html lang="id">
-
-<head>
-
-  <meta charset="UTF-8">
-
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1.0">
-
-  <title>Kontak Kami</title>
-
-  <style>
-
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: Arial, sans-serif;
-      background: #f5f7f5;
-      margin: 0;
-      padding: 50px 20px;
-    }
-
-    .container {
-      background: white;
-      max-width: 600px;
-      margin: auto;
-      padding: 40px;
-      border-radius: 15px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    }
-
-    h1 {
-      text-align: center;
-      color: #188038;
-      margin-bottom: 10px;
-    }
-
-    .subtitle {
-      text-align: center;
-      color: #666;
-      margin-bottom: 30px;
-    }
-
-    .contact-box {
-      background: #f1f8f3;
-      padding: 18px;
-      margin-bottom: 15px;
-      border-radius: 10px;
-    }
-
-    .contact-box h3 {
-      margin: 0 0 8px 0;
-      color: #188038;
-    }
-
-    .contact-box p {
-      margin: 0;
-      color: #333;
-    }
-
-    .whatsapp {
-      display: block;
-      text-align: center;
-      background: #188038;
-      color: white;
-      text-decoration: none;
-      padding: 14px;
-      border-radius: 8px;
-      margin-top: 25px;
-      font-size: 16px;
-    }
-
-    .whatsapp:hover {
-      background: #137333;
-    }
-
-    /* =========================
-       FORM PESAN
-       ========================= */
-
-    .contact-form {
-      margin-top: 35px;
-      padding-top: 30px;
-      border-top: 2px solid #eeeeee;
-    }
-
-    .contact-form h2 {
-      text-align: center;
-      color: #188038;
-      margin-bottom: 25px;
-    }
-
-    .contact-form label {
-      display: block;
-      margin-top: 15px;
-      margin-bottom: 7px;
-      font-weight: bold;
-      color: #333;
-    }
-
-    .contact-form input,
-    .contact-form textarea {
-      width: 100%;
-      padding: 13px;
-      border: 1px solid #cccccc;
-      border-radius: 8px;
-      font-size: 15px;
-      font-family: Arial, sans-serif;
-    }
-
-    .contact-form input:focus,
-    .contact-form textarea:focus {
-      outline: none;
-      border-color: #188038;
-    }
-
-    .contact-form textarea {
-      resize: vertical;
-    }
-
-    .contact-form button {
-      width: 100%;
-      margin-top: 20px;
-      padding: 14px;
-      border: none;
-      border-radius: 8px;
-      background: #188038;
-      color: white;
-      font-size: 16px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    .contact-form button:hover {
-      background: #137333;
-    }
-
-    .contact-form button:disabled {
-      background: #999999;
-      cursor: not-allowed;
-    }
-
-    #status {
-      text-align: center;
-      margin-top: 15px;
-      min-height: 25px;
-      font-weight: bold;
-    }
-
-    .footer {
-      text-align: center;
-      margin-top: 30px;
-      color: #888;
-      font-size: 13px;
-    }
-
-  </style>
-
-</head>
-
-
-<body>
-
-<div class="container">
-
-  <!-- =========================
-       JUDUL
-       ========================= -->
-
-  <h1>📞 Kontak Kami</h1>
-
-  <p class="subtitle">
-    Silakan hubungi kami melalui informasi berikut.
-  </p>
-
-
-  <!-- =========================
-       INFORMASI KONTAK
-       ========================= -->
-
-  <div class="contact-box">
-
-    <h3>👤 Nama</h3>
-
-    <p>
-      Cinta Sandrayana
-    </p>
-
-  </div>
-
-
-  <div class="contact-box">
-
-    <h3>📱 Nomor Telepon</h3>
-
-    <p>
-      0822-5683-1797
-    </p>
-
-  </div>
-
-
-  <div class="contact-box">
-
-    <h3>📧 Email</h3>
-
-    <p>
-      sandrayanacinta198@gmail.com
-    </p>
-
-  </div>
-
-
-  <div class="contact-box">
-
-    <h3>📍 Alamat</h3>
-
-    <p>
-      Serunai, Kalimantan Barat
-    </p>
-
-  </div>
-
-
-  <!-- =========================
-       WHATSAPP
-       ========================= -->
-
-  <a
-    class="whatsapp"
-    href="https://wa.me/6282256831797"
-    target="_blank">
-
-    💬 Hubungi via WhatsApp
-
-  </a>
-
-
-  <!-- =========================
-       FORM PESAN
-       ========================= -->
-
-  <div class="contact-form">
-
-    <h2>💬 Kirim Pesan</h2>
-
-
-    <!--
-      PENTING:
-      Tidak menggunakan submit biasa.
-    -->
-
-    <form id="formPesan">
-
-      <label for="nama">
-        Nama
-      </label>
-
-      <input
-        type="text"
-        id="nama"
-        placeholder="Masukkan nama Anda"
-        required
-      >
-
-
-      <label for="email">
-        Email
-      </label>
-
-      <input
-        type="email"
-        id="email"
-        placeholder="Masukkan email Anda"
-        required
-      >
-
-
-      <label for="pesan">
-        Pesan
-      </label>
-
-      <textarea
-        id="pesan"
-        rows="6"
-        placeholder="Tulis pesan Anda..."
-        required
-      ></textarea>
-
-
-      <!--
-        type="button" sangat penting
-        agar halaman tidak refresh.
-      -->
-
-      <button
-        type="button"
-        id="btnKirim"
-        onclick="kirimPesan()">
-
-        📤 Kirim Pesan
-
-      </button>
-
-    </form>
-
-
-    <p id="status"></p>
-
-  </div>
-
-
-  <!-- =========================
-       FOOTER
-       ========================= -->
-
-  <div class="footer">
-
-    © 2026 Aplikasi Penjualan
-
-  </div>
-
-</div>
-
-
-<!-- ==================================================
-     JAVASCRIPT
-     ================================================== -->
-
 <script>
-
-
-// ==================================================
-// URL WEB APP APPS SCRIPT KAMU
-// ==================================================
 
 const WEB_APP_URL =
 "https://script.google.com/macros/s/AKfycbwub531VZJwqkCha1XFOqyajj28OOAbCJ45i0YZU4cBtBE8i2wdGrUFy8UuWN1yMLgB/exec";
 
 
-// ==================================================
-// FUNGSI KIRIM PESAN
-// ==================================================
-
 function kirimPesan() {
-
-
-  // Ambil input
 
   const nama =
     document.getElementById("nama").value.trim();
@@ -359,7 +15,6 @@ function kirimPesan() {
   const pesan =
     document.getElementById("pesan").value.trim();
 
-
   const status =
     document.getElementById("status");
 
@@ -367,86 +22,83 @@ function kirimPesan() {
     document.getElementById("btnKirim");
 
 
-  // ==================================================
   // VALIDASI
-  // ==================================================
 
   if (nama === "") {
-
-    status.innerHTML =
-      "⚠️ Nama wajib diisi.";
-
+    status.innerHTML = "⚠️ Nama wajib diisi.";
     status.style.color = "red";
-
     return;
   }
-
 
   if (email === "") {
-
-    status.innerHTML =
-      "⚠️ Email wajib diisi.";
-
+    status.innerHTML = "⚠️ Email wajib diisi.";
     status.style.color = "red";
-
     return;
   }
-
 
   if (pesan === "") {
-
-    status.innerHTML =
-      "⚠️ Pesan wajib diisi.";
-
+    status.innerHTML = "⚠️ Pesan wajib diisi.";
     status.style.color = "red";
-
     return;
   }
 
 
-  // ==================================================
-  // TAMPILKAN PROSES
-  // ==================================================
+  // TAMPILKAN LOADING
 
-  status.innerHTML =
-    "⏳ Mengirim pesan...";
-
-  status.style.color =
-    "#188038";
-
+  status.innerHTML = "⏳ Mengirim pesan...";
+  status.style.color = "#188038";
 
   tombol.disabled = true;
-
-  tombol.innerHTML =
-    "⏳ Mengirim...";
+  tombol.innerHTML = "⏳ Mengirim...";
 
 
-  // ==================================================
-  // BUAT CALLBACK
-  // ==================================================
+  // REQUEST
 
-  const callbackName =
-    "callbackPesan_" + Date.now();
-
-
-  window[callbackName] =
-    function(response) {
+  const url =
+    WEB_APP_URL +
+    "?action=kirimPesan" +
+    "&nama=" + encodeURIComponent(nama) +
+    "&email=" + encodeURIComponent(email) +
+    "&pesan=" + encodeURIComponent(pesan);
 
 
-      // ==============================================
-      // JIKA BERHASIL
-      // ==============================================
+  fetch(url)
+    .then(function(response) {
 
-      if (response && response.success) {
+      return response.text();
+
+    })
+
+    .then(function(data) {
+
+      console.log("RESPON APPS SCRIPT:", data);
+
+
+      let hasil;
+
+      try {
+
+        hasil = JSON.parse(data);
+
+      } catch (error) {
+
+        throw new Error(
+          "Server memberikan respon yang tidak valid."
+        );
+
+      }
+
+
+      if (hasil.success) {
 
         status.innerHTML =
-          "✅ " + response.message;
+          "✅ " + hasil.message;
 
         status.style.color =
           "#188038";
 
 
-        // Kosongkan formulir
+        // Kosongkan form
 
         document.getElementById("nama").value = "";
 
@@ -454,106 +106,39 @@ function kirimPesan() {
 
         document.getElementById("pesan").value = "";
 
-      }
-
-
-      // ==============================================
-      // JIKA GAGAL
-      // ==============================================
-
-      else {
+      } else {
 
         status.innerHTML =
-          "❌ " +
-          (response && response.message
-            ? response.message
-            : "Pesan gagal dikirim.");
+          "❌ " + hasil.message;
 
         status.style.color =
           "red";
-
       }
 
+    })
 
-      // Aktifkan tombol kembali
+    .catch(function(error) {
 
-      tombol.disabled = false;
-
-      tombol.innerHTML =
-        "📤 Kirim Pesan";
-
-
-      // Hapus callback
-
-      delete window[callbackName];
-
-    };
-
-
-  // ==================================================
-  // BUAT ALAMAT REQUEST
-  // ==================================================
-
-  const url =
-    WEB_APP_URL +
-
-    "?action=kirimPesan" +
-
-    "&nama=" +
-    encodeURIComponent(nama) +
-
-    "&email=" +
-    encodeURIComponent(email) +
-
-    "&pesan=" +
-    encodeURIComponent(pesan) +
-
-    "&callback=" +
-    callbackName;
-
-
-  // ==================================================
-  // KIRIM REQUEST KE APPS SCRIPT
-  // ==================================================
-
-  const script =
-    document.createElement("script");
-
-
-  script.src = url;
-
-
-  // ==================================================
-  // JIKA SERVER TIDAK BISA DIHUBUNGI
-  // ==================================================
-
-  script.onerror =
-    function() {
+      console.error(error);
 
       status.innerHTML =
-        "❌ Tidak dapat menghubungi server.";
+        "❌ Gagal mengirim pesan: " +
+        error.message;
 
       status.style.color =
         "red";
 
+    })
+
+    .finally(function() {
 
       tombol.disabled = false;
 
       tombol.innerHTML =
         "📤 Kirim Pesan";
 
-
-      delete window[callbackName];
-
-    };
-
-
-  document.body.appendChild(script);
+    });
 
 }
 
 </script>
-
-</body>
-
-</html>
