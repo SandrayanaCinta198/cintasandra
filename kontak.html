@@ -293,55 +293,124 @@
 
         tombol.innerHTML =
           "⏳ Mengirim...";
+<script>
+
+const WEB_APP_URL =
+"https://script.google.com/macros/s/AKfycbwub531VZJwqkCha1XFOqyajj28OOAbCJ45i0YZU4cBtBE8i2wdGrUFy8UuWN1yMLgB/exec";
 
 
-        // Kirim ke Google Apps Script
+document
+  .getElementById("formPesan")
+  .addEventListener("submit", function(e) {
 
-        google.script.run
+    e.preventDefault();
 
-          .withSuccessHandler(function(response) {
 
-            status.innerHTML =
-              "✅ " + response;
+    const nama =
+      document.getElementById("nama").value.trim();
 
-            status.style.color = "#188038";
+    const email =
+      document.getElementById("email").value.trim();
 
-            document
-              .getElementById("formPesan")
-              .reset();
+    const pesan =
+      document.getElementById("pesan").value.trim();
 
-            tombol.disabled = false;
+    const status =
+      document.getElementById("status");
 
-            tombol.innerHTML =
-              "📤 Kirim Pesan";
+    const tombol =
+      document.getElementById("btnKirim");
 
-          })
 
-          .withFailureHandler(function(error) {
+    if (!nama || !email || !pesan) {
 
-            status.innerHTML =
-              "❌ Pesan gagal dikirim: " +
-              error.message;
+      status.innerHTML =
+        "⚠️ Semua kolom wajib diisi.";
 
-            status.style.color = "red";
+      return;
+    }
 
-            tombol.disabled = false;
 
-            tombol.innerHTML =
-              "📤 Kirim Pesan";
+    status.innerHTML =
+      "⏳ Mengirim pesan...";
 
-            console.error(error);
+    tombol.disabled = true;
 
-          })
 
-          .kirimPesan(
-            nama,
-            email,
-            pesan
-          );
+    // Membuat nama fungsi callback unik
 
-      });
+    const callbackName =
+      "hasilPesan_" + Date.now();
 
+
+    window[callbackName] =
+      function(response) {
+
+        if (response.success) {
+
+          status.innerHTML =
+            "✅ " + response.message;
+
+          document
+            .getElementById("formPesan")
+            .reset();
+
+        } else {
+
+          status.innerHTML =
+            "❌ " + response.message;
+
+        }
+
+
+        tombol.disabled = false;
+
+
+        // Hapus callback
+
+        delete window[callbackName];
+
+      };
+
+
+    // Membuat URL pengiriman
+
+    const url =
+      WEB_APP_URL +
+      "?action=kirimPesan" +
+      "&nama=" + encodeURIComponent(nama) +
+      "&email=" + encodeURIComponent(email) +
+      "&pesan=" + encodeURIComponent(pesan) +
+      "&callback=" + callbackName;
+
+
+    // Kirim ke Apps Script
+
+    const script =
+      document.createElement("script");
+
+    script.src = url;
+
+
+    script.onerror = function() {
+
+      status.innerHTML =
+        "❌ Gagal menghubungi server.";
+
+      tombol.disabled = false;
+
+      delete window[callbackName];
+
+    };
+
+
+    document.body.appendChild(script);
+
+  });
+
+</script>
+
+       
   </script>
 
 </body>
