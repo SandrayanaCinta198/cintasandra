@@ -8,14 +8,13 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
 
-    <title>Galeri Desa Serunai</title>
+    <title>Kontak - Desa Serunai</title>
 
-    <link rel="stylesheet"
-          href="style.css">
+    <link rel="stylesheet" href="style.css">
 
     <link rel="icon"
-          type="image/jpeg"
-          href="favicon.jpeg">
+          type="image/png"
+          href="favicon.png">
 
 </head>
 
@@ -26,24 +25,16 @@
 
     <div class="nav-container">
 
-        <a href="index.html"
-           class="logo">
-
+        <a href="index.html" class="logo">
             🌿 Desa <span>Serunai</span>
-
         </a>
 
-
-        <div class="menu-button"
-             onclick="toggleMenu()">
-
+        <button class="menu-button"
+                onclick="toggleMenu()">
             ☰
+        </button>
 
-        </div>
-
-
-        <ul class="nav-menu"
-            id="navMenu">
+        <ul class="nav-menu" id="navMenu">
 
             <li>
                 <a href="index.html">
@@ -64,14 +55,13 @@
             </li>
 
             <li>
-                <a href="galeri.html"
-                   class="active">
+                <a href="galeri.html">
                     Galeri
                 </a>
             </li>
 
             <li>
-                <a href="kontak.html">
+                <a href="kontak.html" class="active">
                     Kontak
                 </a>
             </li>
@@ -89,75 +79,158 @@
 </nav>
 
 
-<section class="container">
+<section class="page-header">
 
-    <div class="section-title">
+    <h1>
+        Hubungi Kami
+    </h1>
 
-        <h2>Galeri Desa</h2>
+    <p>
+        Sampaikan pesan kepada Desa Serunai
+    </p>
 
-        <p>
-            Dokumentasi Desa Serunai
-        </p>
-
-    </div>
-
-
-    <div class="gallery">
+</section>
 
 
-        <div class="gallery-item">
+<section class="section">
 
-            <img
-                src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=85"
-                alt="Galeri Desa 1">
-
-        </div>
+    <div class="contact-layout">
 
 
-        <div class="gallery-item">
+        <div class="contact-info">
 
-            <img
-                src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=900&q=85"
-                alt="Galeri Desa 2">
+            <h2>
+                Kontak Desa
+            </h2>
 
-        </div>
+            <p>
+                Silakan kirim pertanyaan, saran,
+                atau informasi melalui formulir.
+            </p>
 
+            <div class="contact-item">
+                📍
+                <div>
+                    <strong>Alamat</strong>
+                    <p>
+                        Desa Serunai
+                    </p>
+                </div>
+            </div>
 
-        <div class="gallery-item">
+            <div class="contact-item">
+                📧
+                <div>
+                    <strong>Email</strong>
+                    <p>
+                        info@desaserunai.id
+                    </p>
+                </div>
+            </div>
 
-            <img
-                src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=900&q=85"
-                alt="Galeri Desa 3">
-
-        </div>
-
-
-        <div class="gallery-item">
-
-            <img
-                src="https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=900&q=85"
-                alt="Galeri Desa 4">
-
-        </div>
-
-
-        <div class="gallery-item">
-
-            <img
-                src="https://images.unsplash.com/photo-1473448912268-2022ce9509d8?auto=format&fit=crop&w=900&q=85"
-                alt="Galeri Desa 5">
-
-        </div>
-
-
-        <div class="gallery-item">
-
-            <img
-                src="https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=900&q=85"
-                alt="Galeri Desa 6">
+            <div class="contact-item">
+                📞
+                <div>
+                    <strong>Telepon</strong>
+                    <p>
+                        08xxxxxxxxxx
+                    </p>
+                </div>
+            </div>
 
         </div>
 
+
+        <div class="contact-form">
+
+            <h2>
+                Kirim Pesan
+            </h2>
+
+            <form id="contactForm">
+
+                <div class="form-group">
+
+                    <label for="nama">
+                        Nama
+                    </label>
+
+                    <input
+                        type="text"
+                        id="nama"
+                        name="nama"
+                        placeholder="Masukkan nama"
+                        required>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="email">
+                        Email
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Masukkan email"
+                        required>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="subjek">
+                        Subjek
+                    </label>
+
+                    <input
+                        type="text"
+                        id="subjek"
+                        name="subjek"
+                        placeholder="Subjek pesan"
+                        required>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="pesan">
+                        Pesan
+                    </label>
+
+                    <textarea
+                        id="pesan"
+                        name="pesan"
+                        rows="6"
+                        placeholder="Tulis pesan..."
+                        required></textarea>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="btn"
+                    id="btnKirim">
+
+                    Kirim Pesan
+
+                </button>
+
+
+                <div
+                    id="formStatus"
+                    class="status">
+                </div>
+
+            </form>
+
+        </div>
 
     </div>
 
@@ -166,7 +239,9 @@
 
 <footer>
 
-    <p>© 2026 Desa Serunai</p>
+    <p>
+        © 2026 Desa Serunai
+    </p>
 
 </footer>
 

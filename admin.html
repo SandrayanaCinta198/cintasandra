@@ -14,10 +14,8 @@
           href="style.css">
 
     <link rel="icon"
-          type="image/jpeg"
-          href="favicon.jpeg">
-
-
+          type="image/png"
+          href="favicon.png">
 
 </head>
 
@@ -28,21 +26,14 @@
 
     <div class="nav-container">
 
-        <a href="index.html"
-           class="logo">
-
+        <a href="index.html" class="logo">
             🌿 Desa <span>Serunai</span>
-
         </a>
 
-
-        <div class="menu-button"
-             onclick="toggleMenu()">
-
+        <button class="menu-button"
+                onclick="toggleMenu()">
             ☰
-
-        </div>
-
+        </button>
 
         <ul class="nav-menu"
             id="navMenu">
@@ -97,22 +88,22 @@
     <!-- LOGIN -->
 
     <div id="loginBox"
-         class="contact-form"
-         style="max-width:500px;margin:auto;">
+         class="contact-form admin-login">
 
         <div class="section-title">
 
-            <h2>Admin Login</h2>
+            <h2>
+                Admin Login
+            </h2>
 
             <p>
-                Masuk untuk melihat pesan.
+                Masuk untuk melihat pesan pengunjung.
             </p>
 
         </div>
 
 
-        <form onsubmit="loginAdmin(event)">
-
+        <form id="loginForm">
 
             <div class="form-group">
 
@@ -158,13 +149,12 @@
                 class="status">
             </div>
 
-
         </form>
 
     </div>
 
 
-    <!-- ADMIN PANEL -->
+    <!-- DASHBOARD -->
 
     <div id="adminPanel"
          style="display:none;">
@@ -241,9 +231,6 @@
         </div>
 
 
-        <br>
-
-
         <div class="admin-card">
 
             <div class="table-wrapper">
@@ -290,7 +277,7 @@
                             <td colspan="6"
                                 style="text-align:center">
 
-                                Silakan login.
+                                Memuat data...
 
                             </td>
 
@@ -303,7 +290,6 @@
             </div>
 
         </div>
-
 
     </div>
 
@@ -320,21 +306,6 @@
 
 
 <script src="script.js"></script>
-
-
-<script>
-
-    document.addEventListener(
-        "DOMContentLoaded",
-        function () {
-
-            cekAdmin();
-
-        }
-    );
-
-</script>
-
 
 </body>
 
