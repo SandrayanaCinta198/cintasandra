@@ -1,74 +1,209 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tentang Desa Serunai</title>
-    <link rel="stylesheet" href="style.css">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Website resmi informasi Desa Serunai">
+
+    <title>Desa Serunai | Beranda</title>
+
+    <link rel="stylesheet"
+          href="style.css">
+
+    <link rel="icon"
+          type="image/jpeg"
+          href="favicon.jpeg">
+
+
 </head>
+
 <body>
 
-<header>
-    <div class="logo">
-        <h2>DESA SERUNAI</h2>
-        <p>Kabupaten Sambas</p>
+
+<nav class="navbar">
+
+    <div class="nav-container">
+
+        <a href="index.html"
+           class="logo">
+
+            🌿 Desa <span>Serunai</span>
+
+        </a>
+
+
+        <div class="menu-button"
+             onclick="toggleMenu()">
+
+            ☰
+
+        </div>
+
+
+        <ul class="nav-menu"
+            id="navMenu">
+
+            <li>
+                <a href="index.html"
+                   class="active">
+                    Beranda
+                </a>
+            </li>
+
+            <li>
+                <a href="tentang.html">
+                    Tentang Desa
+                </a>
+            </li>
+
+            <li>
+                <a href="wisata.html">
+                    Wisata
+                </a>
+            </li>
+
+            <li>
+                <a href="galeri.html">
+                    Galeri
+                </a>
+            </li>
+
+            <li>
+                <a href="kontak.html">
+                    Kontak
+                </a>
+            </li>
+
+            <li>
+                <a href="admin.html">
+                    Admin
+                </a>
+            </li>
+
+        </ul>
+
     </div>
 
-    <nav>
-        <a href="index.html">Beranda</a>
-        <a href="tentang.html" class="active">Tentang Desa</a>
-        <a href="wisata.html">Wisata</a>
-        <a href="galeri.html">Galeri</a>
-        <a href="kontak.html">Kontak</a>
-    </nav>
-</header>
+</nav>
 
-<section class="page-header">
-    <h1>Tentang Desa Serunai</h1>
-    <p>Mengenal lebih dekat Desa Serunai</p>
-</section>
 
-<section class="content">
-    <h2>Profil Desa</h2>
+<section class="hero">
 
-    <p>
-        Desa Serunai merupakan bagian dari wilayah Kabupaten Sambas,
-        Provinsi Kalimantan Barat. Desa ini memiliki kehidupan masyarakat
-        yang menjunjung tinggi nilai kebersamaan, gotong royong,
-        serta kelestarian budaya lokal.
-    </p>
+    <div class="hero-content">
 
-    <p>
-        Potensi desa tidak hanya berasal dari sektor pertanian,
-        tetapi juga dari keindahan alam, kehidupan sosial masyarakat,
-        serta berbagai kegiatan budaya yang menjadi bagian dari
-        kehidupan sehari-hari.
-    </p>
+        <h1>Selamat Datang</h1>
 
-    <h2>Visi Desa</h2>
+        <h2>Desa Serunai</h2>
 
-    <div class="info-box">
         <p>
-            "Mewujudkan Desa Serunai yang maju, mandiri,
-            sejahtera, dan berbudaya."
+            Website informasi, potensi,
+            wisata dan pelayanan Desa Serunai.
         </p>
+
+        <a href="tentang.html"
+           class="btn btn-white">
+
+            Jelajahi Desa
+
+        </a>
+
     </div>
 
-    <h2>Misi Desa</h2>
-
-    <ul class="mission">
-        <li>Meningkatkan pelayanan kepada masyarakat.</li>
-        <li>Mengembangkan potensi ekonomi desa.</li>
-        <li>Menjaga lingkungan dan kelestarian alam.</li>
-        <li>Melestarikan budaya dan tradisi masyarakat.</li>
-        <li>Meningkatkan kebersamaan dan gotong royong.</li>
-    </ul>
 </section>
+
+
+<section class="container">
+
+    <div class="section-title">
+
+        <h2>Selamat Datang di Desa Serunai</h2>
+
+        <p>
+            Mengenal desa dan berbagai potensi
+            yang dimiliki.
+        </p>
+
+    </div>
+
+
+    <div class="cards">
+
+
+        <div class="card">
+
+            <div class="card-content">
+
+                <h3>🌱 Desa Hijau</h3>
+
+                <p>
+                    Lingkungan yang asri,
+                    nyaman dan memiliki
+                    potensi alam.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="card-content">
+
+                <h3>🤝 Masyarakat</h3>
+
+                <p>
+                    Semangat gotong royong
+                    dan kebersamaan masyarakat.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="card-content">
+
+                <h3>🏞️ Wisata</h3>
+
+                <p>
+                    Potensi wisata alam
+                    yang dapat dikembangkan.
+                </p>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
 
 <footer>
-    <p>&copy; 2026 Desa Serunai. Semua Hak Dilindungi.</p>
+
+    <p>
+        © 2026 Desa Serunai
+    </p>
+
+    <p class="green">
+        Website Informasi Desa
+    </p>
+
 </footer>
 
+
 <script src="script.js"></script>
+
 </body>
+
 </html>

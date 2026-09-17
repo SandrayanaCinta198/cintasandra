@@ -1,183 +1,341 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin - Desa Serunai Tumpak</title>
 
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-        }
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
-        body {
-            min-height: 100vh;
-            background: linear-gradient(135deg, #0066cc, #00aaff);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
+    <title>Admin - Desa Serunai</title>
 
-        .login-box {
-            background: white;
-            width: 100%;
-            max-width: 400px;
-            padding: 35px;
-            border-radius: 20px;
-            box-shadow: 0 15px 40px rgba(0,0,0,.2);
-            text-align: center;
-        }
+    <link rel="stylesheet"
+          href="style.css">
 
-        .login-box h1 {
-            color: #0066cc;
-            margin-bottom: 10px;
-        }
+    <link rel="icon"
+          type="image/jpeg"
+          href="favicon.jpeg">
 
-        .login-box p {
-            color: #666;
-            margin-bottom: 25px;
-        }
 
-        input {
-            width: 100%;
-            padding: 14px;
-            margin-bottom: 15px;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            outline: none;
-        }
 
-        button {
-            width: 100%;
-            padding: 14px;
-            border: none;
-            border-radius: 10px;
-            background: #0066cc;
-            color: white;
-            font-size: 16px;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background: #004c99;
-        }
-
-        #adminPanel {
-            display: none;
-        }
-
-        .data-box {
-            margin-top: 20px;
-            padding: 20px;
-            background: #f5f9ff;
-            border-radius: 12px;
-            text-align: left;
-        }
-
-        .logout {
-            margin-top: 15px;
-            background: #e53935;
-        }
-
-        #error {
-            color: red;
-            margin-top: 12px;
-        }
-    </style>
 </head>
 
 <body>
 
-<div class="login-box" id="loginBox">
 
-    <h1>🔐 Admin Panel</h1>
-    <p>Desa Serunai Tumpak</p>
+<nav class="navbar">
 
-    <input
-        type="password"
-        id="password"
-        placeholder="Masukkan password admin"
-    >
+    <div class="nav-container">
 
-    <button onclick="login()">Masuk</button>
+        <a href="index.html"
+           class="logo">
 
-    <p id="error"></p>
+            🌿 Desa <span>Serunai</span>
 
-</div>
+        </a>
 
 
-<div class="login-box" id="adminPanel">
+        <div class="menu-button"
+             onclick="toggleMenu()">
 
-    <h1>Dashboard Admin</h1>
+            ☰
+
+        </div>
+
+
+        <ul class="nav-menu"
+            id="navMenu">
+
+            <li>
+                <a href="index.html">
+                    Beranda
+                </a>
+            </li>
+
+            <li>
+                <a href="tentang.html">
+                    Tentang Desa
+                </a>
+            </li>
+
+            <li>
+                <a href="wisata.html">
+                    Wisata
+                </a>
+            </li>
+
+            <li>
+                <a href="galeri.html">
+                    Galeri
+                </a>
+            </li>
+
+            <li>
+                <a href="kontak.html">
+                    Kontak
+                </a>
+            </li>
+
+            <li>
+                <a href="admin.html"
+                   class="active">
+                    Admin
+                </a>
+            </li>
+
+        </ul>
+
+    </div>
+
+</nav>
+
+
+<section class="container">
+
+
+    <!-- LOGIN -->
+
+    <div id="loginBox"
+         class="contact-form"
+         style="max-width:500px;margin:auto;">
+
+        <div class="section-title">
+
+            <h2>Admin Login</h2>
+
+            <p>
+                Masuk untuk melihat pesan.
+            </p>
+
+        </div>
+
+
+        <form onsubmit="loginAdmin(event)">
+
+
+            <div class="form-group">
+
+                <label for="adminUsername">
+                    Username
+                </label>
+
+                <input
+                    type="text"
+                    id="adminUsername"
+                    placeholder="Username"
+                    required>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="adminPassword">
+                    Password
+                </label>
+
+                <input
+                    type="password"
+                    id="adminPassword"
+                    placeholder="Password"
+                    required>
+
+            </div>
+
+
+            <button
+                type="submit"
+                class="btn">
+
+                Login
+
+            </button>
+
+
+            <div
+                id="loginStatus"
+                class="status">
+            </div>
+
+
+        </form>
+
+    </div>
+
+
+    <!-- ADMIN PANEL -->
+
+    <div id="adminPanel"
+         style="display:none;">
+
+
+        <div class="admin-header">
+
+            <div>
+
+                <h2>
+                    🌿 Dashboard Admin
+                </h2>
+
+                <p>
+                    Data pesan dari pengunjung.
+                </p>
+
+            </div>
+
+
+            <button
+                class="btn"
+                onclick="logoutAdmin()">
+
+                Logout
+
+            </button>
+
+        </div>
+
+
+        <div class="stats">
+
+
+            <div class="stat-box">
+
+                <span>
+                    Total Pesan
+                </span>
+
+                <strong id="totalPesan">
+                    0
+                </strong>
+
+            </div>
+
+
+            <div class="stat-box">
+
+                <span>
+                    Status
+                </span>
+
+                <strong>
+                    Aktif
+                </strong>
+
+            </div>
+
+
+            <div class="stat-box">
+
+                <span>
+                    Database
+                </span>
+
+                <strong>
+                    Sheets
+                </strong>
+
+            </div>
+
+
+        </div>
+
+
+        <br>
+
+
+        <div class="admin-card">
+
+            <div class="table-wrapper">
+
+                <table class="admin-table">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                Tanggal
+                            </th>
+
+                            <th>
+                                Nama
+                            </th>
+
+                            <th>
+                                Email
+                            </th>
+
+                            <th>
+                                Subjek
+                            </th>
+
+                            <th>
+                                Pesan
+                            </th>
+
+                            <th>
+                                Status
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="dataPesan">
+
+                        <tr>
+
+                            <td colspan="6"
+                                style="text-align:center">
+
+                                Silakan login.
+
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<footer>
 
     <p>
-        Selamat datang di Panel Admin
-        Desa Serunai Tumpak.
+        © 2026 Desa Serunai
     </p>
 
-    <div class="data-box">
-        <h3>📩 Data Pengaduan</h3>
-        <p>
-            Data pengaduan masyarakat akan
-            ditampilkan di halaman ini.
-        </p>
-    </div>
+</footer>
 
-    <div class="data-box">
-        <h3>📊 Data Website</h3>
-        <p>
-            Kelola informasi dan data desa
-            melalui panel admin.
-        </p>
-    </div>
 
-    <button class="logout" onclick="logout()">
-        Keluar
-    </button>
-
-</div>
+<script src="script.js"></script>
 
 
 <script>
 
-function login() {
+    document.addEventListener(
+        "DOMContentLoaded",
+        function () {
 
-    const password =
-        document.getElementById("password").value;
+            cekAdmin();
 
-    // GANTI PASSWORD DI SINI
-    const passwordAdmin = "admin123";
-
-    if (password === passwordAdmin) {
-
-        document.getElementById("loginBox").style.display = "none";
-
-        document.getElementById("adminPanel").style.display = "block";
-
-    } else {
-
-        document.getElementById("error").textContent =
-            "Password salah!";
-
-    }
-}
-
-
-function logout() {
-
-    document.getElementById("adminPanel").style.display = "none";
-
-    document.getElementById("loginBox").style.display = "block";
-
-    document.getElementById("password").value = "";
-
-}
+        }
+    );
 
 </script>
 
+
 </body>
+
 </html>
